@@ -52,6 +52,8 @@
 						{
 							"name": "Set variable1",
 							"type": "SetVariable",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [],
 							"policy": {
 								"secureOutput": false,
@@ -62,6 +64,22 @@
 								"variableName": "filename",
 								"value": {
 									"value": "@item().name",
+									"type": "Expression"
+								}
+							}
+						},
+						{
+							"name": "Filter1",
+							"type": "Filter",
+							"dependsOn": [],
+							"userProperties": [],
+							"typeProperties": {
+								"items": {
+									"value": "@item().name",
+									"type": "Expression"
+								},
+								"condition": {
+									"value": "@equals(item().name,'SalesLTAddress.json' )",
 									"type": "Expression"
 								}
 							}
