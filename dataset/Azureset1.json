@@ -10,6 +10,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@items().name",
+					"type": "Expression"
+				},
 				"folderPath": "filestobeused",
 				"fileSystem": "22adls"
 			},
