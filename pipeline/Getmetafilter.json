@@ -69,9 +69,36 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Filter1').output.Value",
+						"value": "@activity('Filter1').output.Value.name",
 						"type": "Expression"
-					}
+					},
+					"activities": [
+						{
+							"name": "Execute Pipeline1",
+							"type": "ExecutePipeline",
+							"dependsOn": [],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "Parameterizedpipeline",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"parameterizedfilesystem": "22adls",
+									"parameterizedfilename": {
+										"value": "@item().name",
+										"type": "Expression"
+									},
+									"parameterizedindirectry": "filestobeused",
+									"parameterizedoutdirectry": "Outpathjson"
+								}
+							}
+						}
+					]
 				}
 			}
 		],
