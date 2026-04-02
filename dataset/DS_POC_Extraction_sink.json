@@ -14,7 +14,7 @@
 				"fileSystem": "project"
 			},
 			"compression": {
-				"type": "ZipDeflate",
+				"type": "deflate",
 				"level": "Optimal"
 			}
 		}
